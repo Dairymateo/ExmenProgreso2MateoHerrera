@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ExmenProgreso2MateoHerrera.MainPage">
 
-    <AbsoluteLayout Padding="10">
+    <StackLayout Padding="10">
         <StackLayout>
             <!-- Entrada para el número telefónico -->
             <Entry x:Name="MHCelular" Placeholder="Ingrese su número de telefono" Keyboard="Telephone"/>
@@ -29,9 +29,8 @@
 
         <Button x:Name="MHRecargar" Text="Recargar" Clicked="RecargarClicked" AbsoluteLayout.LayoutBounds="0.99, 0.99" AbsoluteLayout.LayoutFlags="PositionProportional" BackgroundColor="Yellow"/>
 
-        <!-- Mensaje de confirmación -->
         <Label x:Name="MHConfirmacionRecarga" IsVisible="False"/>
-    </AbsoluteLayout>
+    </StackLayout>
 
 
 </ContentPage>

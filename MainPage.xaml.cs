@@ -5,14 +5,14 @@ using System.Threading.Tasks;
 
 
 
-    public partial class MainPage : ContentPage
-    {
-        public string montoSeleccionado;
+public partial class MainPage : ContentPage
+{
+    public string montoSeleccionado;
 
-        public MainPage()
-        {
-            InitializeComponent();
-        }
+    public MainPage()
+    {
+        InitializeComponent();
+    }
 
     private void RecargaCantidad(object sender, CheckedChangedEventArgs e)
     {
@@ -20,7 +20,7 @@ using System.Threading.Tasks;
         {
             var radioButton = sender as RadioButton;
             montoSeleccionado = radioButton.Content.ToString();
-            DisplayAlert("Monto seleccionado", $"Has seleccionado una recarga de {montoSeleccionado} dólares.", "OK");
+
         }
     }
 
@@ -31,7 +31,7 @@ using System.Threading.Tasks;
 
         if (string.IsNullOrEmpty(numeroTelefono) || string.IsNullOrEmpty(operador) || string.IsNullOrEmpty(montoSeleccionado))
         {
-            await DisplayAlert("Error", "Existen campos vacios", "OK");
+            await DisplayAlert("Error", "Por favor complete todos los campos.", "OK");
             return;
         }
 
@@ -39,26 +39,28 @@ using System.Threading.Tasks;
         if (confirm)
         {
             await RealizarRecargaAsync(numeroTelefono, montoSeleccionado);
+            //GuardarEnArchivo(numeroTelefono, montoSeleccionado);
         }
     }
 
-    private async Task RealizarRecargaAsync(string numeroTelefono, int monto)
+    private async Task RealizarRecargaAsync(string numeroTelefono, string monto)
     {
-        await Task.Delay(2000);
+        
 
         var fecha = DateTime.Now.ToString("dd/MM/yyyy");
         var textoRecarga = $"Se hizo una recarga de {monto} dólares en la siguiente fecha: {fecha}";
 
-        // Guardar archivo con el número de teléfono
-        var path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), $"{numeroTelefono}.txt");
+        
+        var path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), $"{numeroTelefono}.txt");
         File.WriteAllText(path, textoRecarga);
-
-        // Mostrar mensaje de confirmación
         await DisplayAlert("Confirmación", "Recarga realizada con éxito", "OK");
         MHConfirmacionRecarga.Text = textoRecarga;
         MHConfirmacionRecarga.IsVisible = true;
     }
 
 
-}
+
+
+   }
+
 
