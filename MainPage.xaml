@@ -20,5 +20,18 @@
             </Picker>
         </StackLayout>
 
+        <StackLayout Orientation="Horizontal" AbsoluteLayout.LayoutBounds="0.40, 0.40" AbsoluteLayout.LayoutFlags="PositionProportional">
+            <Label Text="Valor de la recarga"/>
+            <RadioButton x:Name="MHRecargade5" Content="5$" GroupName="Recarga" CheckedChanged="RecargaCantidad"/>
+            <RadioButton x:Name="MHRecargade10" Content="10$" GroupName="Recarga" CheckedChanged="RecargaCantidad"/>
+            <RadioButton x:Name="MHRecargade20" Content="20$" GroupName="Recarga" CheckedChanged="RecargaCantidad"/>
+        </StackLayout>
+
+        <Button x:Name="MHRecargar" Text="Recargar" Clicked="RecargarClicked" AbsoluteLayout.LayoutBounds="0.99, 0.99" AbsoluteLayout.LayoutFlags="PositionProportional" BackgroundColor="Yellow"/>
+
+        <!-- Mensaje de confirmación -->
+        <Label x:Name="MHConfirmacionRecarga" IsVisible="False"/>
+    </AbsoluteLayout>
+
 
 </ContentPage>
