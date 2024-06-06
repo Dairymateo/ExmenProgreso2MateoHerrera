@@ -39,7 +39,6 @@ public partial class MainPage : ContentPage
         if (confirm)
         {
             await RealizarRecargaAsync(numeroTelefono, montoSeleccionado);
-            //GuardarEnArchivo(numeroTelefono, montoSeleccionado);
         }
     }
 

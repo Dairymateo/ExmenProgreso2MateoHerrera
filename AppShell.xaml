@@ -8,7 +8,7 @@
     Title="ExmenProgreso2MateoHerrera">
 
     <ShellContent
-        Title="Home"
+        Title="Pagina de Recargas Mateo Herrera"
         ContentTemplate="{DataTemplate local:MainPage}"
         Route="MainPage" />
 
