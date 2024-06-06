@@ -5,7 +5,11 @@
 
     <StackLayout Padding="10">
         <StackLayout>
+            <Image Source="images.png" 
+                   SemanticProperties.Description="The dot net bot waving hello!"
+                   HeightRequest="100" />
             <!-- Entrada para el número telefónico -->
+            <Label>Ingrese el numero de telefono al que desea recargar</Label>
             <Entry x:Name="MHCelular" Placeholder="Ingrese su número de telefono" Keyboard="Telephone"/>
         </StackLayout>
 
